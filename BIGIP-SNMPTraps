@@ -21,3 +21,10 @@ Content of /var/run/bigip_error_maps.dat (https://support.f5.com/csp/article/K64
 - field 3: 01150100 --> alert code
 - field 4: BIGIP_ZFD_MF_FILE_ERR --> alert name
 - field 5: "Error reading file" --> descriptive message string format
+
+Content of /etc/alertd/alert.conf (https://support.f5.com/csp/article/K11127)
+  alert BIGIP_MCPD_MCPDERR_NODE_ADDRESS_MON_STATUS {
+              snmptrap OID=".1.3.6.1.4.1.3375.2.4.0.12"
+      }
+- row 1: BIGIP_MCPD_MCPDERR_NODE_ADDRESS_MON_STATUS --> alert name
+- row 2: snmptrap OID=".1.3.6.1.4.1.3375.2.4.0.12" --> action & OID
