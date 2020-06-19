@@ -1,0 +1,37 @@
+F5 MIB list
+
+           dump DEFINITIONS ::= BEGIN
+           org ::= { iso 3 }
+           dod ::= { org 6 }
+           internet ::= { dod 1 }
+           directory ::= { internet 1 }
+           mgmt ::= { internet 2 }
+           experimental ::= { internet 3 }
+           private ::= { internet 4 }
+           security ::= { internet 5 }
+           snmpV2 ::= { internet 6 }
+
+          snmptranslate -Tl | head
+           will produce the following dump:
+
+           .iso(1).org(3)
+           .iso(1).org(3).dod(6)
+           .iso(1).org(3).dod(6).internet(1)
+           .iso(1).org(3).dod(6).internet(1).directory(1)
+           .iso(1).org(3).dod(6).internet(1).mgmt(2)
+           .iso(1).org(3).dod(6).internet(1).mgmt(2).mib-2(1)
+           .iso(1).org(3).dod(6).internet(1).mgmt(2).mib-2(1).system(1)
+           .iso(1).org(3).dod(6).internet(1).mgmt(2).mib-2(1).system(1).sysDescr(1)
+           .iso(1).org(3).dod(6).internet(1).mgmt(2).mib-2(1).system(1).sysObjectID(2)
+           .iso(1).org(3).dod(6).internet(1).mgmt(2).mib-2(1).system(1).sysUpTime(3)
+
+
+1.3.6.1.4.1.3375 f5
+1.3.6.1.4.1.3375.2 bigipTrafficMgmt
+1.3.6.1.4.1.3375.2.1 system
+1.3.6.1.4.1.3375.2.2 local traffic
+1.3.6.1.4.1.3375.2.3 bigipGlobalTM
+1.3.6.1.4.1.3375.2.4 bigipNotification
+1.3.6.1.4.1.3375.2.5 bigipCompliance
+1.3.6.1.4.1.3375.2.6 bigipAPM
+1.3.6.1.4.1.3375.2.7 bigipWAM
