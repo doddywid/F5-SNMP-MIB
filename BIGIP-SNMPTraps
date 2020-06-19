@@ -1,0 +1,23 @@
+Flow (https://support.f5.com/csp/article/K11127)
+
+Syslog-ng generate logs --> match alert code --> alert code matched agains /var/run/bigip_error_maps.dat (result alert name) --> alertd process action according to /etc/alertd/alert.conf (send Traps, SMTP, etc)
+
+File location & description
+- /etc/alertd/*_maps.h --> all error maps file
+- /var/run/bigip_error_maps.dat --> dynamically generated
+
+Content of /var/run/bigip_error_maps.dat (https://support.f5.com/csp/article/K6420)
+  2 LOG_ERR 01150100 BIGIP_ZFD_MF_FILE_ERR "Error reading file"
+- field 1: 2 --> error log file, options are:
+                  0 = /var/log/ltm
+                  1 = /var/log/em
+                  2 = /var/log/gtm
+                  3 = /var/log/asm
+                  4 = /var/log/ltm or /var/log/iControl
+                  5 = /var/log/pktfilter
+                  6 = /var/log/httpd/httpd_errors
+                  7 = /var/log/boot.log
+- field 2: LOG_ERR --> syslog level
+- field 3: 01150100 --> alert code
+- field 4: BIGIP_ZFD_MF_FILE_ERR --> alert name
+- field 5: "Error reading file" --> descriptive message string format
