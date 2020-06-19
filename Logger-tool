@@ -1,0 +1,22 @@
+logger -p <facility>.<level> "<alert code>:<log level>: <descriptive message>"
+
+<facility> is the syslog-ng facility as listed in the /var/run/bigip_error_maps.dat file.
+<level> is the facility log level, which can include one of any eight available log levels.
+<alert code> is the alert code as indicated in the *_maps.h file entry.
+<log level> is the alert log level. This level corresponds with the following values:
+          Log   level	                            Description	Corresponding syslog level
+          0	    System is unusable	              emerg
+          1	    Action must be taken immediately	alert
+          2	    Critical conditions	              crit
+          3	    Error conditions	                err
+          4	    Warning conditions	              warning
+          5	    Normal but significant condition	notice
+          6	    Informational	                    info
+          7	    Debug-level messages	            debug
+
+<descriptive message> is the descriptive message string format used to describe the alert. Note that %s in the example will match any string.
+
+Example:
+  logger -p local0.notice "01070640:5: Node 10.10.64.14 monitor status down."
+  
+Refer to https://support.f5.com/csp/article/K11127
